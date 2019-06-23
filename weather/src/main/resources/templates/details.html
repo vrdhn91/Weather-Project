@@ -1,0 +1,121 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Weather Forecast</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</head>
+	<body>
+			
+		<div class="container">
+		  <h2 th:text="${city_weather.city}"></h2> 
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Timezone: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.timezone}"></p>
+		  	</div>
+		  </div>
+		  
+		  <!-- <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Time: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.formatTime}"></p>
+		  	</div>
+		  </div> -->
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Latitude: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.latitude}"></p>
+		  	</div>
+		  </div>
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Longitude: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.longitude}"></p>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Summary: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.summary}"></p>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Temperature: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.temperature}"></p>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Apparent Temperature: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.apparentTemperature}"></p>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Humidity: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.humidity}"></p>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Pressure: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.pressure}"></p>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>Visibility: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.visibility}"></p>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  	<div class="col-sm-3">
+		  		<b>UV Index: </b>
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<p th:text="${city_weather.uvIndex}"></p>
+		  	</div>
+		  </div>
+		  
+		  
+		  <form action="#" th:action="@{/weather/}" method="get">
+	   			<button th:id="table_exit_button" type="submit">
+	       		Back
+	   			</button>
+			</form>
+		</div>
+		
+	</body>
+
+</html>

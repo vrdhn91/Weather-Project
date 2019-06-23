@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Weather Forecast</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</head>
+	<body>
+			
+		<div class="container">
+			<h2>My Weather</h2>
+			<table class="table table-hover">
+		    <thead>
+		      <tr>
+		      	<th>City</th>
+		        <th>Country</th>
+		        <th>Timezone</th>
+		        <th>Latitude</th>
+		        <th>Longitude</th>
+		        <th>Details</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		     	<tr th:each="weather, rowStat: ${forecasts}">
+            		<td th:text="${weather.city}"></td>
+		              <td th:text="${weather.country}"></td>
+		              <td th:text="${weather.timezone}"></td>
+		              <td th:text="${weather.latitude}"></td>
+		              <td th:text="${weather.longitude}"></td>
+		              <td>
+		                <form action="#" th:action="@{/weather/details/} + ${weather.city}" method="get">
+                			<button th:id="'table_entry_childs_button_' + ${weather.city}" type="submit">
+                    		Details
+                			</button>
+            			</form>
+        			  </td>
+		        </tr>
+		    </tbody>
+		  </table>
+		</div>
+		
+		<!-- <div class="container">
+			<form action="#" th:action="@{/weather/add/}" method="get">
+                <button th:id="add_button" type="submit">
+                    Add
+                </button>
+           	</form>
+		</div> -->
+		
+	</body>
+
+	<!-- <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <input type="submit" value="Add User">   
+	</form> -->
+	
+	
+
+</html>
